@@ -17,7 +17,7 @@ elixir((mix) => {
             'node_modules/es5-shim/es5-shim.js',
             'node_modules/es5-shim/es5-sham.js',
             'node_modules/jquery/dist/jquery.min.js',
-            'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
+            'node_modules/bootstrap/js/dist/tooltip.js',
             'node_modules/moment/min/moment-with-locales.min.js',
             'node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
             'node_modules/lodash/lodash.min.js',
