@@ -1,0 +1,2 @@
+#!/bin/sh
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{"a":1}' "https://www.openfn.org/inbox/bd582330-5418-4846-8d3f-a2c6f65ddf74"
