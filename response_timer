@@ -7,6 +7,8 @@
 export $(cat .env | xargs)
 # get repsonse time...
 TIME=$(curl -X POST \
+  -H "Content-Type: application/json" \
+  -H "Cache-Control: no-cache" \
   -d '{"a":1}' \
   --url $INBOX_UUID -w %{time_total} \
   | grep -o '^.....')
@@ -17,3 +19,4 @@ curl -H "Content-Type: application/json" \
   -X POST \
   -d "{'value': $TIME, 'timestamp' : `date +%s%3N`}" \
   --url https://status.openfn.org/api/v1/metrics/2/points
+
