@@ -7,7 +7,7 @@
 export $(cat .env | xargs)
 # get repsonse time...
 TIME=$(curl -X POST \
-  -d {"a":1} \
+  -d '{"a":1}' \
   --url $INBOX_UUID -w %{time_total} \
   | grep -o '^.....')
 
