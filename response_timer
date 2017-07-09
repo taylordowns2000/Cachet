@@ -1,15 +1,19 @@
 #!/bin/bash
+# ==============================================================================
+# Here we're tesing the round-trip response time from openfn.org then poting
+#   that data to Cachet for display on status.openfn.org
+# ==============================================================================
+# export env variables...
 export $(cat .env | xargs)
 # get repsonse time...
 TIME=$(curl -X POST \
-  -d {"b":2} \
-  --url $INBOX_UUID \
-  -w %{time_total} \
+  -d {"a":1} \
+  --url $INBOX_UUID -w %{time_total} \
   | grep -o '^.....')
 
 # post it to cachet...
 curl -H "Content-Type: application/json" \
-  -H "$CACHET_TOKEN \
+  -H "X-Cachet-Token: $CACHET_TOKEN" \
   -X POST \
   -d "{'value': $TIME, 'timestamp' : `date +%s%3N`}" \
   --url https://status.openfn.org/api/v1/metrics/2/points
