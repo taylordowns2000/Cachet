@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# get repsonse time...
+TIME=$(curl -X POST \
+  -d {"b":2} \
+  https://www.openfn.org/inbox/$INBOX_UUID -w %{time_total} \
+  | grep -o '^.....')
+
+# post it to cachet...
+curl -H "Content-Type: application/json" \
+  -H "X-Cachet-Token: $CACHET_TOKEN" \
+  -X POST \
+  -d "{'value': $TIME, 'timestamp' : `date +%s%3N`}" \
+  https://status.openfn.org/api/v1/metrics/2/points
