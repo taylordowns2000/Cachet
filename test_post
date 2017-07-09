@@ -3,4 +3,4 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -H "Cache-Control: no-cache" \
   -d '{"a":1}' \
-  "https://www.openfn.org/inbox/$INBOX_UUID"
+  $INBOX_UUID
