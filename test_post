@@ -1,6 +1,7 @@
 #!/bin/sh
+export $(cat .env | xargs)
 curl -X POST \
   -H "Content-Type: application/json" \
   -H "Cache-Control: no-cache" \
   -d '{"a":1}' \
-  $INBOX_UUID
+  --url $INBOX_UUID
